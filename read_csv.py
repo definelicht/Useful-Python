@@ -1,26 +1,24 @@
 from numpy import ndarray, zeros
-import csv
+from csv import reader
 
-# Examples: data = ReadCsv("mydata.txt",delimiter="\t")
-#           data = ReadCsv("nicedata.csv",skip=1)
-def ReadCsv(filename,delimiter=",",skip=0):
+def read(filename,delimiter=",",skip=0):
   datafile = open(filename,"rU")
-  reader = csv.reader(datafile,delimiter=delimiter)
-  col_count = len(reader.next())
-  row_count = sum(1 for row in reader) + 1
+  r = reader(datafile,delimiter=delimiter)
+  col_count = len(r.next())
+  row_count = sum(1 for row in r) + 1
   datafile.seek(0)
   for i in range(skip):
-    reader.next()
+    r.next()
     row_count -= 1
   output = zeros((row_count,col_count),dtype="float")
   i = 0
-  for row in reader:
+  for row in r:
     output[i] = row
     i += 1
   datafile.close()
   return output
 
-def Header(filename,delimiter=","):
+def header(filename,delimiter=","):
   datafile = open(filename,"rU")
   reader = csv.reader(datafile,delimiter=delimiter)
   header = reader.next()

@@ -72,6 +72,7 @@ def ChisquareStats(fit):
 def ChisquareString(fit):
   return "#chi^{2} = %.2e, NDF = %i, p = %.2e" % ChisquareStats(fit)
 
+# Not specifically ROOT, but useful nevertheless
 def WeightedMean(values,errors):
   n = len(values)
   average = 0
