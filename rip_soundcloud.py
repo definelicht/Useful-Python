@@ -11,7 +11,4 @@ def rip_soundcloud(url):
 
 for arg in sys.argv:
   if not "http" in arg: continue
-  try:
-    rip_soundcloud(arg)
-  except:
-    print "Failed to rip input \"%s\"" % arg
+  rip_soundcloud(arg)
