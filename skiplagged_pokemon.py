@@ -10,7 +10,7 @@ bottomLeft = (55.663048, 12.542520) # Bottom left of quadrant
 topRight = (55.709418, 12.615667)   # Top right of quadrant
 home = (55.684467, 12.573196)       # Point to compute distance from
 radius = 0.01                       # Radius from home to show notifications
-notifications = False               # Tottle notifications
+notifications = False               # Toggle notifications
 restartTime = 600                   # Time between rebooting the workers
 filterFile = "filter.txt"           # File of interesting pokemon
 
