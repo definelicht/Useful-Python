@@ -29,8 +29,8 @@ def test_tikz(path, viewer="evince", buildFolder="/tmp/"):
   proc = subprocess.Popen(["pdflatex", filename], cwd=outDir)
   proc.communicate()
   if proc.returncode != 0:
-    print(err)
-    sys.exit(1)
+    raise RuntimeError("Compilation failed with error code: " +
+                       str(proc.returncode))
 
   subprocess.call([viewer, os.path.join(outDir, stripped + ".pdf")])
 
