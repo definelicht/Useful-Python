@@ -9,7 +9,7 @@ def run_process(command):
 def sweep_args(program, args):
   for perm in itertools.product(*args):
     if run_process([sys.argv[1]] + list(perm)) != 0:
-      raise RuntimeError("Execution failed with arguments:", perm)
+      raise RuntimeError("Execution failed with arguments: " + str(perm))
 
 if __name__ == "__main__":
   if len(sys.argv) < 2:
